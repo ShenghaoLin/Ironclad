@@ -1,14 +1,12 @@
 include "../Node.i.dfy"
 include "../../../Impl/Common/SeqIsUnique.i.dfy"
 include "../../../Common/Collections/Seqs.i.dfy"
-include "../../../Common/Framework/DistributedSystem.s.dfy"
-include "../../../Impl/Lock/Host.i.dfy"
+//include "../../../Common/Framework/DistributedSystem.s.dfy"
 
-module DistributedSystem_i refines DistributedSystem_s {
+module DistributedSystem_i {
     import opened Protocol_Node_i
     import opened Common__SeqIsUnique_i
     import opened Collections__Seqs_i
-    import opened H_s = Host_i
 
     /////////////////////////////////////////
     // LS_State

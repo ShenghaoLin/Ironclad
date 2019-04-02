@@ -13,10 +13,6 @@ class NodeImpl
 
     ghost var Repr : set<object>;
 
-    constructor () {
-        udpClient := null;
-    }
-
     predicate Valid()
         reads this;
         reads UdpClientIsValid.reads(udpClient);

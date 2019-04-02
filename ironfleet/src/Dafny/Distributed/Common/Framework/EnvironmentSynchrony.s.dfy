@@ -127,8 +127,7 @@ predicate PacketsSynchronousForHosts<IdType, MessageType>(
     requires imaptotal(b);
 {
     forall p {:trigger PacketSentBetweenHosts(b[i], p, sources, destinations)} ::
-        p in b[i].sentPackets
-     && PacketSentBetweenHosts(b[i], p, sources, destinations) ==>
+        PacketSentBetweenHosts(b[i], p, sources, destinations) ==>
         sat(i, next(eventuallynextwithin(PacketDeliveredTemporal(b, p), latency_bound, BehaviorToTimeMap(b))))
 }
 

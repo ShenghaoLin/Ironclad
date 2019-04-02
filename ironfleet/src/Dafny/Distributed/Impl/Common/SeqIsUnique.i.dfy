@@ -11,7 +11,7 @@ function UniqueSeqToSet<X>(xs:seq<X>) : set<X>
     set x | x in xs
 }
 
-function{:timeLimitMultiplier 3}{:opaque} SetToUniqueSeq<X(!new)>(s:set<X>):seq<X>
+function{:timeLimitMultiplier 3}{:opaque} SetToUniqueSeq<X>(s:set<X>):seq<X>
     ensures  forall x :: x in SetToUniqueSeq(s) <==> x in s;
     ensures  SeqIsUnique(SetToUniqueSeq(s));
     ensures  |SetToUniqueSeq(s)| == |s|;
@@ -32,7 +32,7 @@ function{:timeLimitMultiplier 3}{:opaque} SetToUniqueSeq<X(!new)>(s:set<X>):seq<
     )
 }
 
-function/*TODO:{:opaque}*/ Subsequence<X(!new)>(xs:seq<X>, f:X->bool):seq<X>
+function/*TODO:{:opaque}*/ Subsequence<X>(xs:seq<X>, f:X->bool):seq<X>
     reads f.reads;
     requires forall x :: x in xs ==> f.requires(x);
     ensures  forall x :: x in Subsequence(xs, f) <==> x in xs && f(x);

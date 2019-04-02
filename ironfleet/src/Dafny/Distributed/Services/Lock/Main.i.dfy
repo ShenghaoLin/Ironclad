@@ -10,7 +10,7 @@ include "../../Protocol/Lock/RefinementProof/Refinement.i.dfy"
 include "../../Protocol/Lock/RefinementProof/RefinementProof.i.dfy"
 include "Marshall.i.dfy"
 
-module Main_i refines Main_s {
+module Main_i exclusively refines Main_s {
     import opened DistributedSystem_i
     import opened Environment_s
     import opened Concrete_NodeIdentity_i
